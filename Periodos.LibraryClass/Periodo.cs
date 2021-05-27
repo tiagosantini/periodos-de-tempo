@@ -73,19 +73,29 @@ namespace Periodos.LibraryClass
                 string medidaTempo = (DiasDecorridos / diasNoMes == 1) ? "mês" : "meses";
 
                 int resto = (DiasDecorridos % diasNoMes) / 7;
+                int restoDias = (DiasDecorridos % diasNoMes);
 
-                string semanasSobrando = "";
+                string medidaDeTempoSobrando = "";
 
-                if (resto != 0)
+                if (resto != 0 && restoDias >= 7)
                 {
                     string strArtigo = (resto == 1) ? "uma" : numeros[resto];
 
                     string medidaTempoSemanas = (resto == 1) ? "semana" : "semanas";
 
-                    semanasSobrando = $" e {strArtigo} {medidaTempoSemanas}";
+                    medidaDeTempoSobrando = $" e {strArtigo} {medidaTempoSemanas}";
                 }
-                
-                tempoPorExtenso = $"{numeros[DiasDecorridos / diasNoMes]} {medidaTempo}{semanasSobrando} atrás";
+
+                else
+                {
+                    string strArtigo = (restoDias == 1) ? "um" : numeros[restoDias];
+
+                    string medidaTempoSemanas = (resto == 1) ? "dia" : "dias";
+
+                    medidaDeTempoSobrando = $" e {strArtigo} {medidaTempoSemanas}";
+                }
+
+                tempoPorExtenso = $"{numeros[DiasDecorridos / diasNoMes]} {medidaTempo}{medidaDeTempoSobrando} atrás";
             }
 
             else // Anos

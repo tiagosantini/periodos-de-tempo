@@ -40,11 +40,19 @@ namespace Periodos.Tests
         }
 
         [TestMethod]
-        public void DeveRetornarMesesDecorridos()
+        public void DeveRetornarMesesDecorridosComSemanas()
         {
             Periodo data = new Periodo("20/03/2021");
 
             Assert.AreEqual("Dois meses e uma semana atrás", data.TempoDecorrido);
+        }
+
+        [TestMethod]
+        public void DeveRetornarMesesDecorridosComDias()
+        {
+            Periodo data = new Periodo("25/03/2021 12:04");
+
+            Assert.AreEqual("Dois meses e dois dias atrás", data.TempoDecorrido);
         }
 
         [TestMethod]

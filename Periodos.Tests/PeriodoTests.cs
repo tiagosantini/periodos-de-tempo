@@ -42,7 +42,7 @@ namespace Periodos.Tests
         [TestMethod]
         public void DeveRetornarMesesDecorridos()
         {
-            Periodo data = new Periodo("20/04/2021");
+            Periodo data = new Periodo("20/03/2021");
 
             Assert.AreEqual("Dois meses e uma semana atrás", data.TempoDecorrido);
         }
